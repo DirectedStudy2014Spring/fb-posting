@@ -10,8 +10,11 @@ class FacebookController < ApplicationController
 
 		#get a status from the friend, comment on it
 		@status = @graph.get_connections(@friend, "statuses", :fields => "id")
+		#@status = @graph.get_connections(@friend, "statuses")
 		@post_id = @status[0]["id"]
-		@message = 'herro'
-		@graph.put_comment(@post_id, @message)
+		@message = "hi"
+		@image = "http://bellicosebeauty.files.wordpress.com/2012/02/cartoon-poop.jpg"
+		#post the image
+		@graph.put_comment(@post_id, @image)
 	end
 end
